@@ -26,4 +26,5 @@ jobs:
       run: dotnet build src/ProyectoBase/ProyectoBase.sln --no-restore --configuration Release
 
     - name: Run Tests
-      run: dotnet test src/ProyectoBase/ProyectoBase.sln --no-build --verbosity normal
+      run: dotnet test src/ProyectoBase/ProyectoBase.sln --no-build --configuration Release --verbosity normal
+
