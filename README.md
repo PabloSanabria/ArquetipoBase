@@ -1,6 +1,9 @@
 
 # ProyectoBase
 
+![Build Status](https://github.com/PabloSanabria/ArquetipoBase/actions/workflows/dotnet.yml/badge.svg)
+
+
 ## 📦 Estructura de Carpetas
 
 El proyecto está organizado siguiendo una arquitectura por capas, que promueve la separación de responsabilidades y facilita la escalabilidad:
