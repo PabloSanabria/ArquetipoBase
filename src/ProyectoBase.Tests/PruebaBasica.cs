@@ -5,9 +5,9 @@ namespace ProyectoBase.Tests
     public class PruebaBasica
     {
         [Fact]
-        public void SiemprePasa()
+        public void Suma_Simple()
         {
-            Assert.True(true);
+            Assert.Equal(2, 1 + 1);
         }
     }
 }
