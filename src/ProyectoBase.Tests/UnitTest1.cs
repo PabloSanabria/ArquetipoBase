@@ -2,7 +2,7 @@ using Xunit;
 
 namespace ProyectoBase.Tests
 {
-    public class TestBasico
+    public class PruebaBasica
     {
         [Fact]
         public void SiemprePasa()
