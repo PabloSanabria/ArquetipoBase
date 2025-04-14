@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoBase.Tests", "..\ProyectoBase.Tests\ProyectoBase.Tests.csproj", "{CBA3B0DB-1ED9-4574-958C-D59FF850CF6F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProyectoBase.Domain", "ProyectoBase.Domain", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{02D4EB64-078B-4C68-BD8F-D5722DB32AFA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProyectoBase.Application", "ProyectoBase.Application", "{02D4EB64-078B-4C68-BD8F-D5722DB32AFA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{4FBBE8C6-A404-41D0-B545-509F407BC15C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProyectoBase.Infraestructure", "ProyectoBase.Infraestructure", "{4FBBE8C6-A404-41D0-B545-509F407BC15C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BCB828B2-F378-4800-B322-8A8AC53876D6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProyectoBase.Presentation", "ProyectoBase.Presentation", "{BCB828B2-F378-4800-B322-8A8AC53876D6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
