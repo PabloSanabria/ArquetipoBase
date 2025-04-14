@@ -28,18 +28,11 @@ jobs:
     - name: Run Tests with Coverage
       run: dotnet test src/ProyectoBase/ProyectoBase.sln --no-build --configuration Release --collect:"XPlat Code Coverage"
 
-    - name: Display coverage files (debug)
-      run: ls src/ProyectoBase.Tests/TestResults/**
+    - name: Show coverage files (debug)
+      run: ls -R src/ProyectoBase.Tests/TestResults
 
     - name: Install ReportGenerator tool
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }} # Opcional si tu repo es público
-        files: src/ProyectoBase.Tests/TestResults/coverage.opencover.xml
-        fail_ci_if_error: true
 
     - name: Generate Coverage Report
       run: |
@@ -48,9 +41,14 @@ jobs:
           -targetdir:coveragereport \
           -reporttypes:HtmlInline_AzurePipelines
 
-
     - name: Upload coverage report artifact
       uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: coveragereport
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        files: src/ProyectoBase.Tests/TestResults/**/coverage.cobertura.xml
+        fail_ci_if_error: true
