@@ -1,11 +1,23 @@
-
 # ProyectoBase
 
-![Build Status](https://github.com/PabloSanabria/ArquetipoBase/actions/workflows/dotnet.yml/badge.svg)
+![.NET Build & Test](https://github.com/PabloSanabria/ArquetipoBase/actions/workflows/dotnet.yml/badge.svg)
+[![codecov](https://codecov.io/gh/PabloSanabria/ArquetipoBase/branch/main/graph/badge.svg)](https://codecov.io/gh/PabloSanabria/ArquetipoBase)
 
-![Coverage](https://codecov.io/gh/PabloSanabria/ArquetipoBase/branch/main/graph/badge.svg)
+Este proyecto utiliza GitHub Actions para la integraci®Æn continua y Codecov para el an®¢lisis de cobertura de c®Ædigo. Las herramientas empleadas para la generaci®Æn de reportes de cobertura son:
 
+- `coverlet.collector`: Para la recopilaci®Æn de datos de cobertura durante la ejecuci®Æn de pruebas.
+- `ReportGenerator`: Para la generaci®Æn de reportes en formato HTML a partir de los datos recopilados.
 
+## ?? Ejecuci®Æn Manual de Pruebas con Cobertura
+
+Para ejecutar las pruebas y generar un reporte de cobertura localmente, puedes utilizar los siguientes comandos:
+
+```bash
+dotnet test src/ProyectoBase/ProyectoBase.sln --collect:"XPlat Code Coverage"
+reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
+```
+
+---
 ## üì¶ Estructura de Carpetas
 
 El proyecto est√° organizado siguiendo una arquitectura por capas, que promueve la separaci√≥n de responsabilidades y facilita la escalabilidad:
@@ -16,6 +28,24 @@ El proyecto est√° organizado siguiendo una arquitectura por capas, que promueve 
 - **Presentation/WebApi**: Proyecto ASP.NET Core que expone la API.
 - **ProyectoBase.Tests**: Proyecto de pruebas unitarias utilizando xUnit.
 - **docs** _(opcional)_: Espacio sugerido para documentar decisiones de arquitectura, procesos de despliegue, etc.
+
+```
+src/
+©¶
+©¿©§©§ Application/
+©¶   ©∏©§©§ L®Ægica de aplicaci®Æn y casos de uso.
+©¶
+©¿©§©§ Domain/
+©¶   ©∏©§©§ Entidades, interfaces y l®Ægica de dominio.
+©¶
+©¿©§©§ Infrastructure/
+©¶   ©∏©§©§ Implementaciones de persistencia, servicios externos.
+©¶
+©¿©§©§ Presentation (WebApi)/
+©¶   ©∏©§©§ Controladores y configuraci®Æn de la API.
+©¶
+©∏©§©§ ProyectoBase.sln
+```
 
 ## ‚öôÔ∏è Requisitos
 
@@ -62,3 +92,10 @@ El archivo `.github/workflows/dotnet.yml` define el pipeline.
 - Todos los proyectos se encuentran bajo la carpeta `src/`, lo cual evita conflictos y mantiene un orden claro.
 - `ProyectoBase.sln` referencia a los proyectos principales y de test.
 - Las rutas relativas se mantienen coherentes para compatibilidad con CI/CD.
+## ?? GitHub Projects
+
+Se utiliza un tablero de tipo Kanban para organizar tareas y funcionalidades.
+
+---
+
+Desarrollado con ?? por [Pablo Sanabria](https://github.com/PabloSanabria)
