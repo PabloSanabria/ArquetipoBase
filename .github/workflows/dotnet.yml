@@ -31,12 +31,16 @@ jobs:
     - name: Display coverage files (debug)
       run: ls src/ProyectoBase.Tests/TestResults/**
 
+    - name: Install ReportGenerator tool
+      run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
     - name: Generate Coverage Report
       run: |
-        reportgenerator \
+        ~/.dotnet/tools/reportgenerator \
           -reports:src/ProyectoBase.Tests/TestResults/**/coverage.cobertura.xml \
           -targetdir:coveragereport \
           -reporttypes:HtmlInline_AzurePipelines
+
 
     - name: Upload coverage report artifact
       uses: actions/upload-artifact@v4
