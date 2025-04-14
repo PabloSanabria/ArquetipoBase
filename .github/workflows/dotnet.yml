@@ -1,4 +1,4 @@
-name: .NET Build, Test & Coverage
+name: .NET Build & Test + Coverage
 
 on:
   push:
@@ -8,11 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
+    - name: Checkout
       uses: actions/checkout@v3
 
     - name: Setup .NET
@@ -26,22 +25,16 @@ jobs:
     - name: Build
       run: dotnet build src/ProyectoBase/ProyectoBase.sln --no-restore --configuration Release
 
-    - name: Test with coverage
-      run: |
-        dotnet test src/ProyectoBase.Tests/ProyectoBase.Tests.csproj \
-          --no-build \
-          --configuration Release \
-          /p:CollectCoverage=true \
-          /p:CoverletOutputFormat=cobertura \
-          /p:CoverletOutput=TestResults/coverage.xml
+    - name: Run Tests with Coverage
+      run: dotnet test src/ProyectoBase/ProyectoBase.sln --no-build --configuration Release --collect:"XPlat Code Coverage"
 
-    - name: Install ReportGenerator
-      run: dotnet tool install --global dotnet-reportgenerator-globaltool
+    - name: Display coverage files (debug)
+      run: ls src/ProyectoBase.Tests/TestResults/**
 
-    - name: Generate coverage report
+    - name: Generate Coverage Report
       run: |
         reportgenerator \
-          -reports:src/ProyectoBase.Tests/TestResults/coverage.xml \
+          -reports:src/ProyectoBase.Tests/TestResults/**/coverage.cobertura.xml \
           -targetdir:coveragereport \
           -reporttypes:HtmlInline_AzurePipelines
 
@@ -50,5 +43,3 @@ jobs:
       with:
         name: coverage-report
         path: coveragereport
-
-
