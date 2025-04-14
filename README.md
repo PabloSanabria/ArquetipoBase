@@ -3,6 +3,8 @@
 
 ![Build Status](https://github.com/PabloSanabria/ArquetipoBase/actions/workflows/dotnet.yml/badge.svg)
 
+![Coverage](https://codecov.io/gh/PabloSanabria/ArquetipoBase/branch/main/graph/badge.svg)
+
 
 ## 📦 Estructura de Carpetas
 

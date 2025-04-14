@@ -34,6 +34,13 @@ jobs:
     - name: Install ReportGenerator tool
       run: dotnet tool install -g dotnet-reportgenerator-globaltool
 
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }} # Opcional si tu repo es público
+        files: src/ProyectoBase.Tests/TestResults/coverage.opencover.xml
+        fail_ci_if_error: true
+
     - name: Generate Coverage Report
       run: |
         ~/.dotnet/tools/reportgenerator \
