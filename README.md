@@ -95,4 +95,28 @@ Configurá las columnas según tus necesidades (To do, In progress, Done).
 Asociá issues y pull requests al tablero para un seguimiento eficiente.
 ---
 
+## Cobertura de Código
+
+Este proyecto utiliza [Coverlet](https://github.com/coverlet-coverage/coverlet) y [ReportGenerator](https://danielpalme.github.io/ReportGenerator/) para calcular y visualizar la cobertura de tests.
+
+### ¿Cómo se genera el reporte?
+
+Cada vez que se ejecuta el workflow de GitHub Actions (`.NET Build & Test + Coverage`), se genera un reporte de cobertura con la herramienta `dotnet-reportgenerator-globaltool`.
+
+### ¿Dónde lo encuentro?
+
+1. Ingresá al tab **Actions** del repositorio.
+2. Seleccioná el workflow `.NET Build & Test + Coverage` más reciente.
+3. En la parte inferior, buscá la sección **Artifacts**.
+4. Hacé clic en `coverage-report` para descargar el archivo `.zip`.
+5. Extraelo en tu PC y abrí el archivo `index.htm` con tu navegador.
+
+### ¿Qué muestra el reporte?
+
+- Porcentaje de cobertura general.
+- Cobertura por proyecto, clase y método.
+- Coloreado de líneas cubiertas y no cubiertas.
+
+Este reporte es útil para mantener una alta calidad de testeo y detectar áreas sin pruebas.
+
 Desarrollado por [Pablo Sanabria](https://github.com/PabloSanabria)
