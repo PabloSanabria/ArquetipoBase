@@ -3,22 +3,8 @@
 ![.NET Build & Test](https://github.com/PabloSanabria/ArquetipoBase/actions/workflows/dotnet.yml/badge.svg)
 [![codecov](https://codecov.io/gh/PabloSanabria/ArquetipoBase/branch/main/graph/badge.svg)](https://codecov.io/gh/PabloSanabria/ArquetipoBase)
 
-Este proyecto utiliza GitHub Actions para la integración continua y Codecov para el análisis de cobertura de código. Las herramientas empleadas para la generación de reportes de cobertura son:
-
-- `coverlet.collector`: Para la recopilación de datos de cobertura durante la ejecución de pruebas.
-- `ReportGenerator`: Para la generación de reportes en formato HTML a partir de los datos recopilados.
-
-## Ejecución Manual de Pruebas con Cobertura
-
-Para ejecutar las pruebas y generar un reporte de cobertura localmente, puedes utilizar los siguientes comandos:
-
-```bash
-dotnet test src/ProyectoBase/ProyectoBase.sln --collect:"XPlat Code Coverage"
-reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
-```
-
 ---
-## Estructura de Carpetas
+## 📁 Estructura de Carpetas
 
 El proyecto está organizado siguiendo una arquitectura por capas, que promueve la separación de responsabilidades y facilita la escalabilidad:
 
@@ -29,12 +15,21 @@ El proyecto está organizado siguiendo una arquitectura por capas, que promueve 
 - **ProyectoBase.Tests**: Proyecto de pruebas unitarias utilizando xUnit.
 - **docs** _(opcional)_: Espacio sugerido para documentar decisiones de arquitectura, procesos de despliegue, etc.
 
-## Requisitos
+## 📦 Requisitos
 
 - .NET 8 SDK
 - GitHub Actions (para CI/CD)
 
-## Primeros pasos
+## 🔄 CI/CD
+
+El proyecto utiliza GitHub Actions para la integración continua:
+- Restaurar dependencias
+- Compilar la solución
+- Ejecutar pruebas automáticamente en cada push o pull request
+
+El archivo `.github/workflows/dotnet.yml` define el pipeline.
+
+## 🚀 Primeros pasos
 
 1. Clonar el repositorio:
    ```bash
@@ -56,48 +51,25 @@ El proyecto está organizado siguiendo una arquitectura por capas, que promueve 
    dotnet test src/ProyectoBase/ProyectoBase.sln
    ```
 
-## Tests
+## ✅ Tests
 
 Las pruebas se encuentran bajo el proyecto `ProyectoBase.Tests`. Se utiliza xUnit como framework principal.
 
-## CI/CD
+### Ejecución Manual de Pruebas con Cobertura
 
-El proyecto utiliza GitHub Actions para:
-- Restaurar dependencias
-- Compilar la solución
-- Ejecutar pruebas automáticamente en cada push o pull request
+Para ejecutar las pruebas y generar un reporte de cobertura localmente, puedes utilizar los siguientes comandos:
 
-El archivo `.github/workflows/dotnet.yml` define el pipeline.
+```bash
+dotnet test src/ProyectoBase/ProyectoBase.sln --collect:"XPlat Code Coverage"
+reportgenerator -reports:**/coverage.cobertura.xml -targetdir:coveragereport -reporttypes:Html
+```
 
-## Buenas prácticas
-
-- Todos los proyectos se encuentran bajo la carpeta `src/`, lo cual evita conflictos y mantiene un orden claro.
-- `ProyectoBase.sln` referencia a los proyectos principales y de test.
-- Las rutas relativas se mantienen coherentes para compatibilidad con CI/CD.
-
-## 🔧 Configuración post-fork
-Después de forkar este repositorio, es recomendable realizar las siguientes configuraciones para asegurar el correcto funcionamiento del proyecto:
-
-1. Configurar GitHub Secrets:
-Algunos workflows requieren secrets específicos que no se transfieren automáticamente al hacer un fork.
-Asegurate de agregar los siguientes secrets en la sección Settings > Secrets and variables > Actions de tu repositorio:
-
-- CODECOV_TOKEN: Token de Codecov para reportar la cobertura de código.
-- DEPLOY_API_KEY: (Opcional) Token para despliegue automático si se configura.
-
-2. Crear un tablero Kanban con GitHub Projects
-Para gestionar las tareas y el progreso del proyecto, podés crear un tablero Kanban:
-
-Navegá a la pestaña Projects en tu repositorio.
-Hacé clic en "New project" y seleccioná el tipo de vista que prefieras (por ejemplo, Board).
-Configurá las columnas según tus necesidades (To do, In progress, Done).
-
-Asociá issues y pull requests al tablero para un seguimiento eficiente.
-
-## Cobertura de Código
+## 📊 Cobertura de Código
+Codecov para el análisis de cobertura de código. Las herramientas empleadas para la generación de reportes de cobertura son:
 
 Este proyecto utiliza [Coverlet](https://github.com/coverlet-coverage/coverlet) y [ReportGenerator](https://danielpalme.github.io/ReportGenerator/) para calcular y visualizar la cobertura de tests.
-
+- `coverlet.collector`: Para la recopilación de datos de cobertura durante la ejecución de pruebas.
+- `ReportGenerator`: Para la generación de reportes en formato HTML a partir de los datos recopilados.
 ### ¿Cómo se genera el reporte?
 
 Cada vez que se ejecuta el workflow de GitHub Actions (`.NET Build & Test + Coverage`), se genera un reporte de cobertura con la herramienta `dotnet-reportgenerator-globaltool`.
@@ -118,7 +90,26 @@ Cada vez que se ejecuta el workflow de GitHub Actions (`.NET Build & Test + Cove
 
 Este reporte es útil para mantener una alta calidad de testeo y detectar áreas sin pruebas.
 
-## Deployment automático a Azure (opcional)
+## 🔧 Configuración post-fork
+Después de forkar este repositorio, es recomendable realizar las siguientes configuraciones para asegurar el correcto funcionamiento del proyecto:
+
+1. Configurar GitHub Secrets:
+Algunos workflows requieren secrets específicos que no se transfieren automáticamente al hacer un fork.
+Asegurate de agregar los siguientes secrets en la sección Settings > Secrets and variables > Actions de tu repositorio:
+
+- CODECOV_TOKEN: Token de Codecov para reportar la cobertura de código.
+- DEPLOY_API_KEY: (Opcional) Token para despliegue automático si se configura.
+
+2. Crear un tablero Kanban con GitHub Projects
+Para gestionar las tareas y el progreso del proyecto, podés crear un tablero Kanban:
+
+Navegá a la pestaña Projects en tu repositorio.
+Hacé clic en "New project" y seleccioná el tipo de vista que prefieras (por ejemplo, Board).
+Configurá las columnas según tus necesidades (To do, In progress, Done).
+
+Asociá issues y pull requests al tablero para un seguimiento eficiente.
+
+## ☁️ Deployment automático a Azure (opcional)
 
 Este arquetipo incluye un workflow base para desplegar la WebAPI en Azure App Service.
 
