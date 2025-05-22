@@ -93,7 +93,6 @@ Hacé clic en "New project" y seleccioná el tipo de vista que prefieras (por ej
 Configurá las columnas según tus necesidades (To do, In progress, Done).
 
 Asociá issues y pull requests al tablero para un seguimiento eficiente.
----
 
 ## Cobertura de Código
 
@@ -119,4 +118,16 @@ Cada vez que se ejecuta el workflow de GitHub Actions (`.NET Build & Test + Cove
 
 Este reporte es útil para mantener una alta calidad de testeo y detectar áreas sin pruebas.
 
+## Deployment automático a Azure (opcional)
+
+Este arquetipo incluye un workflow base para desplegar la WebAPI en Azure App Service.
+
+Para activarlo:
+1. Crear un recurso WebApp en Azure.
+2. Obtener el perfil de publicación (Publish Profile) y configurarlo como secret `AZURE_WEBAPP_PUBLISH_PROFILE` en GitHub.
+3. Reemplazar el nombre del recurso en `.github/workflows/azure-deploy.yml`.
+
+El deployment se activará automáticamente al hacer push a `main`.
+
+---
 Desarrollado por [Pablo Sanabria](https://github.com/PabloSanabria)
