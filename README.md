@@ -128,6 +128,7 @@ Para activarlo:
 3. Reemplazar el nombre del recurso en `.github/workflows/azure-deploy.yml`.
 
 El deployment se activará automáticamente al hacer push a `main`.
+Si no vas a usar Azure, podés eliminar el archivo `azure-deploy.yml` sin afectar el resto del proyecto.
 
 ---
 Desarrollado por [Pablo Sanabria](https://github.com/PabloSanabria)
